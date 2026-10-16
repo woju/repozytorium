@@ -1,0 +1,19 @@
+stages:
+  - build
+  - test
+
+default:
+  image: 'debian:stable'
+
+build:
+  stage: build
+  script:
+    - echo 123 > test.html
+  artifacts:
+    paths:
+      - test.html
+
+test:
+  stage: test
+  script:
+    - test -f test.html
